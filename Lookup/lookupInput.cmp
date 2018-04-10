@@ -1,0 +1,39 @@
+<aura:component controller="InputLookupAuraController" access="global">
+    
+    <ltng:require styles="/resource/Lgt_InputLookup/css/typeahead.css"
+                  scripts="/resource/Lgt_InputLookup/js/jquery-2.2.4.min.js,
+                           /resource/Lgt_InputLookup/js/bootstrap.min.js,
+                           /resource/Lgt_InputLookup/js/typeahead.js"
+                  afterScriptsLoaded="{!c.initTypeahead}" />
+    
+    <aura:registerEvent name="inputLookupEvent" type="c:InputLookupEvt" />
+    <aura:handler name="inputLookupEvent" event="c:InputLookupEvt" action="{!c.handleInputLookupEvt}"/>
+    
+    <aura:attribute type="String" name="type"  description="SobjectType" default="Contact" access="global"/>
+    <aura:attribute name="value" type="String" description="Source / Destination value" access="global"/>
+    <aura:attribute name="className" type="String" description="class name of the input object" access="global"/>
+    
+    <!-- PRIVATE ATTRS -->
+    <aura:attribute name="nameValue" type="String" description="Name of the current lookup 'name' field: loaded by controller"
+                    access="PUBLIC"/>
+    <aura:attribute name="isLoading" type="Boolean" description="Loading component" default="true"
+                    access="PRIVATE"/>
+    
+    <div class="slds-form-element__control">
+        <div class="slds-combobox_container slds-has-inline-listbox">
+            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-combobox-lookup" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                    <input id="{!globalId+'_typeahead'}" type="text" class="{!v.className}"
+                           readonly="{!v.isLoading}" onkeyup="{!c.disableButton}" />
+                    
+                    
+                    <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+                        
+                        <!--img src="{!URLFOR($Resource.SLDS214, '/assets/utility/search_60.jpg')}" alt="" /-->
+                        <lightning:icon iconName="utility:search" size="x-small"/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>
