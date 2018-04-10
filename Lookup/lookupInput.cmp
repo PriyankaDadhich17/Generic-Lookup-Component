@@ -23,13 +23,9 @@
         <div class="slds-combobox_container slds-has-inline-listbox">
             <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-combobox-lookup" aria-expanded="false" aria-haspopup="listbox" role="combobox">
                 <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
-                    <input id="{!globalId+'_typeahead'}" type="text" class="{!v.className}"
-                           readonly="{!v.isLoading}" onkeyup="{!c.disableButton}" />
-                    
+                    <input id="{!globalId+'_typeahead'}" type="text" class="{!v.className}" readonly="{!v.isLoading}" onkeyup="{!c.disableButton}" />
                     
                     <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
-                        
-                        <!--img src="{!URLFOR($Resource.SLDS214, '/assets/utility/search_60.jpg')}" alt="" /-->
                         <lightning:icon iconName="utility:search" size="x-small"/>
                     </span>
                 </div>
