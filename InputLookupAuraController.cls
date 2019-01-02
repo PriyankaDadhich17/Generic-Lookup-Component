@@ -81,7 +81,7 @@ public class InputLookupAuraController {
         }
 
         String nameField = getSobjectNameField(objType);
-        searchString = '\'*'+searchString+'*\'';
+        //searchString = '\'*'+searchString+'*\'';
         String soslQuery = 'FIND :searchString IN NAME FIELDS RETURNING '
                           + type +'(Id, '+nameField+' ORDER BY '+nameField+') LIMIT 20';
       System.debug('SOSL QUERY: '+soslQuery);
